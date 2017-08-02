@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "G:\\scriptsAndPieces\\Android\\Camera2\\android-Camera2Basic\\Application\\build\\intermediates\\res\\merged\\debug\\layout-v21\\notification_template_custom_big.xml",
+        "source": "C:\\Users\\Maulwurf\\.android\\build-cache\\7c9d10360d2e169adea3fa7fdfe3364505ce90cb\\output\\res\\layout-v21\\notification_template_custom_big.xml"
+    },
+    {
+        "merged": "G:\\scriptsAndPieces\\Android\\Camera2\\android-Camera2Basic\\Application\\build\\intermediates\\res\\merged\\debug\\layout-v21\\notification_template_icon_group.xml",
+        "source": "C:\\Users\\Maulwurf\\.android\\build-cache\\7c9d10360d2e169adea3fa7fdfe3364505ce90cb\\output\\res\\layout-v21\\notification_template_icon_group.xml"
+    },
+    {
+        "merged": "G:\\scriptsAndPieces\\Android\\Camera2\\android-Camera2Basic\\Application\\build\\intermediates\\res\\merged\\debug\\layout-v21\\notification_action.xml",
+        "source": "C:\\Users\\Maulwurf\\.android\\build-cache\\7c9d10360d2e169adea3fa7fdfe3364505ce90cb\\output\\res\\layout-v21\\notification_action.xml"
+    },
+    {
+        "merged": "G:\\scriptsAndPieces\\Android\\Camera2\\android-Camera2Basic\\Application\\build\\intermediates\\res\\merged\\debug\\layout-v21\\notification_action_tombstone.xml",
+        "source": "C:\\Users\\Maulwurf\\.android\\build-cache\\7c9d10360d2e169adea3fa7fdfe3364505ce90cb\\output\\res\\layout-v21\\notification_action_tombstone.xml"
+    }
+]

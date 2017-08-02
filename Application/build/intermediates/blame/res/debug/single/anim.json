@@ -1,0 +1,42 @@
+[
+    {
+        "merged": "G:\\scriptsAndPieces\\Android\\Camera2\\android-Camera2Basic\\Application\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_out_top.xml",
+        "source": "C:\\Users\\Maulwurf\\.android\\build-cache\\7c9d10360d2e169adea3fa7fdfe3364505ce90cb\\output\\res\\anim\\abc_slide_out_top.xml"
+    },
+    {
+        "merged": "G:\\scriptsAndPieces\\Android\\Camera2\\android-Camera2Basic\\Application\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_in_bottom.xml",
+        "source": "C:\\Users\\Maulwurf\\.android\\build-cache\\7c9d10360d2e169adea3fa7fdfe3364505ce90cb\\output\\res\\anim\\abc_slide_in_bottom.xml"
+    },
+    {
+        "merged": "G:\\scriptsAndPieces\\Android\\Camera2\\android-Camera2Basic\\Application\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_out_bottom.xml",
+        "source": "C:\\Users\\Maulwurf\\.android\\build-cache\\7c9d10360d2e169adea3fa7fdfe3364505ce90cb\\output\\res\\anim\\abc_slide_out_bottom.xml"
+    },
+    {
+        "merged": "G:\\scriptsAndPieces\\Android\\Camera2\\android-Camera2Basic\\Application\\build\\intermediates\\res\\merged\\debug\\anim\\abc_popup_exit.xml",
+        "source": "C:\\Users\\Maulwurf\\.android\\build-cache\\7c9d10360d2e169adea3fa7fdfe3364505ce90cb\\output\\res\\anim\\abc_popup_exit.xml"
+    },
+    {
+        "merged": "G:\\scriptsAndPieces\\Android\\Camera2\\android-Camera2Basic\\Application\\build\\intermediates\\res\\merged\\debug\\anim\\abc_fade_in.xml",
+        "source": "C:\\Users\\Maulwurf\\.android\\build-cache\\7c9d10360d2e169adea3fa7fdfe3364505ce90cb\\output\\res\\anim\\abc_fade_in.xml"
+    },
+    {
+        "merged": "G:\\scriptsAndPieces\\Android\\Camera2\\android-Camera2Basic\\Application\\build\\intermediates\\res\\merged\\debug\\anim\\abc_fade_out.xml",
+        "source": "C:\\Users\\Maulwurf\\.android\\build-cache\\7c9d10360d2e169adea3fa7fdfe3364505ce90cb\\output\\res\\anim\\abc_fade_out.xml"
+    },
+    {
+        "merged": "G:\\scriptsAndPieces\\Android\\Camera2\\android-Camera2Basic\\Application\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_in_top.xml",
+        "source": "C:\\Users\\Maulwurf\\.android\\build-cache\\7c9d10360d2e169adea3fa7fdfe3364505ce90cb\\output\\res\\anim\\abc_slide_in_top.xml"
+    },
+    {
+        "merged": "G:\\scriptsAndPieces\\Android\\Camera2\\android-Camera2Basic\\Application\\build\\intermediates\\res\\merged\\debug\\anim\\abc_grow_fade_in_from_bottom.xml",
+        "source": "C:\\Users\\Maulwurf\\.android\\build-cache\\7c9d10360d2e169adea3fa7fdfe3364505ce90cb\\output\\res\\anim\\abc_grow_fade_in_from_bottom.xml"
+    },
+    {
+        "merged": "G:\\scriptsAndPieces\\Android\\Camera2\\android-Camera2Basic\\Application\\build\\intermediates\\res\\merged\\debug\\anim\\abc_popup_enter.xml",
+        "source": "C:\\Users\\Maulwurf\\.android\\build-cache\\7c9d10360d2e169adea3fa7fdfe3364505ce90cb\\output\\res\\anim\\abc_popup_enter.xml"
+    },
+    {
+        "merged": "G:\\scriptsAndPieces\\Android\\Camera2\\android-Camera2Basic\\Application\\build\\intermediates\\res\\merged\\debug\\anim\\abc_shrink_fade_out_from_bottom.xml",
+        "source": "C:\\Users\\Maulwurf\\.android\\build-cache\\7c9d10360d2e169adea3fa7fdfe3364505ce90cb\\output\\res\\anim\\abc_shrink_fade_out_from_bottom.xml"
+    }
+]

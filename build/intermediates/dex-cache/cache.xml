@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="C:\Users\Maulwurf\.android\build-cache\7b7dded28eebdf56e664cff39861b2d93c62d1ce\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="efb8cb62d47d157c29d1521daac7eefd4cb881ee">
+        <dex dex="G:\scriptsAndPieces\Android\Camera2\android-Camera2Basic\Application\build\intermediates\transforms\dex\debug\folders\1000\10\classes_919983eced86948381c7d11e1ff34401bbc99e2d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Maulwurf\.android\build-cache\734c97b5809f5a41f73d5601fc3aa36ad794b787\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="914f5d3e3ace66080e59613708f06d129a222e25">
+        <dex dex="G:\scriptsAndPieces\Android\Camera2\android-Camera2Basic\Application\build\intermediates\transforms\dex\debug\folders\1000\10\classes_324643f1a90c46069229aba6861cc37a1a93666d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Maulwurf\.android\build-cache\8adf9e06495961102c99e559e539956e4b48f0a6\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="052f5f840f21174a3ecf6544130194e2652cbb73">
+        <dex dex="G:\scriptsAndPieces\Android\Camera2\android-Camera2Basic\Application\build\intermediates\transforms\dex\debug\folders\1000\10\classes_4787ef31612f99133f4f953d5bca6a800671dedc\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Maulwurf\.android\build-cache\8ac86a964788db6c3c8264dc12812b3e113d7bdf\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="45f697922e6f072daa12f8a2995dc77ab03c11da">
+        <dex dex="G:\scriptsAndPieces\Android\Camera2\android-Camera2Basic\Application\build\intermediates\transforms\dex\debug\folders\1000\10\classes_aaf643a2760b5d6314139fd2a685d30c5317a43a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Maulwurf\.android\build-cache\a3b99618264342fc2e543860beb701ebb1ab4c90\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="4a26a1154d053ab11aaf4c3967c42a4d66390991">
+        <dex dex="G:\scriptsAndPieces\Android\Camera2\android-Camera2Basic\Application\build\intermediates\transforms\dex\debug\folders\1000\10\classes_34a865d58b68b4768963028d570bd63edb30d395\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Maulwurf\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\25.3.1\support-annotations-25.3.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="bf8841d29fa39e077730e7a91222c2ce269fa7c9">
+        <dex dex="G:\scriptsAndPieces\Android\Camera2\android-Camera2Basic\Application\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-25.3.1_072a61575e440c15e9ea8ccac807872cbf9f5142\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Maulwurf\.android\build-cache\f39bebe8bf107e425aa0b1420a45588bc5f440e8\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="6ef31f1555bb4cc513ec8d52711365a8b89f3600">
+        <dex dex="G:\scriptsAndPieces\Android\Camera2\android-Camera2Basic\Application\build\intermediates\transforms\dex\debug\folders\1000\10\classes_f27aa39cf9b6d5e128d218436328363fbbfc55b0\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Maulwurf\.android\build-cache\7c9d10360d2e169adea3fa7fdfe3364505ce90cb\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="150252b33b00274cc868578ade018fda0d43a3eb">
+        <dex dex="G:\scriptsAndPieces\Android\Camera2\android-Camera2Basic\Application\build\intermediates\transforms\dex\debug\folders\1000\10\classes_7e845c6fc63a589dc7ca12b8c593174b9295a9d4\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Maulwurf\.android\build-cache\3ac9454cefb642262a2450fd59cd5ae8ef9f64a2\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="8531f2d46b35de75e6130f25830e0c2c0d6bb98c">
+        <dex dex="G:\scriptsAndPieces\Android\Camera2\android-Camera2Basic\Application\build\intermediates\transforms\dex\debug\folders\1000\10\classes_b3ecc5bc3e95d24dec8429d694b0b45933264852\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Maulwurf\.android\build-cache\24cfeb965742898a279b44e08a9f5ba98701bd84\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="da27a32db6af8954ee8061537c7d476fcb1df46f">
+        <dex dex="G:\scriptsAndPieces\Android\Camera2\android-Camera2Basic\Application\build\intermediates\transforms\dex\debug\folders\1000\10\classes_01f61b87644d0e535da1268c97e03986e0af59b9\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="G:\scriptsAndPieces\Android\Camera2\android-Camera2Basic\Application\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
+        <dex dex="G:\scriptsAndPieces\Android\Camera2\android-Camera2Basic\Application\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_42269b14e691f77666dceb80cde824eddf77b28b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="G:\scriptsAndPieces\Android\Camera2\android-Camera2Basic\Application\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="9ed3e2922d5b3f44fb4076205937a95c47b68337">
+        <dex dex="G:\scriptsAndPieces\Android\Camera2\android-Camera2Basic\Application\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_891bbc52994c46d3ccfb54dd0451bc59e9cac595\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Maulwurf\.android\build-cache\6542baec4f31b11dbf9049dbf9a495543e9da670\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="G:\scriptsAndPieces\Android\Camera2\android-Camera2Basic\Application\build\intermediates\transforms\dex\debug\folders\1000\10\classes_9040b8ef435d15df8e9fb76548c18d335d0611c7\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Maulwurf\.android\build-cache\9ed6ac4dd4a336378a7810fcd71a1f63c5d57951\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="47635644d0d5c103c1dd8360549eb9ba3225c7d3">
+        <dex dex="G:\scriptsAndPieces\Android\Camera2\android-Camera2Basic\Application\build\intermediates\transforms\dex\debug\folders\1000\10\classes_f38691c2db82822a9d961ec123a09cf944ef6a74\classes.dex" />
+    </item>
+
+</items>

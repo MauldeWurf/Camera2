@@ -24,6 +24,7 @@ import android.app.DialogFragment;
 import android.app.Fragment;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.graphics.ImageFormat;
@@ -43,10 +44,14 @@ import android.hardware.camera2.TotalCaptureResult;
 import android.hardware.camera2.params.StreamConfigurationMap;
 import android.media.Image;
 import android.media.ImageReader;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.os.HandlerThread;
+import android.os.Message;
 import android.support.annotation.NonNull;
+import android.support.v13.app.ActivityCompat;
 import android.support.v13.app.FragmentCompat;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
@@ -57,12 +62,14 @@ import android.view.Surface;
 import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Toast;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.ByteBuffer;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -283,6 +290,28 @@ public class Camera2BasicFragment extends Fragment
     /**
      * A {@link CameraCaptureSession.CaptureCallback} that handles events related to JPEG capture.
      */
+
+    private Button seriesButton;
+
+    private boolean createNextFile(){
+        File path = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES) + File.separator + getString(R.string.fileDirectory));
+        //SteVogt
+        if(!path.exists()) {
+            //steVogt:
+            FragmentCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},1 ); //requests perimission for saving, very lowtech solution, does not work in general
+            boolean pathCreated = path.mkdir();
+            if(pathCreated) showToast("Directory created!");
+            else showToast("Unable to create Directory");
+            return false;
+        }
+        SimpleDateFormat formatter = new SimpleDateFormat("yyMMddHHhhmmssSSS");
+        java.util.Calendar calendarInstance = java.util.Calendar.getInstance();
+        String timeString = formatter.format(calendarInstance.getTime());
+        mFile = new File(path, timeString + ".jpg");
+        return true;
+    }
+
+
     private CameraCaptureSession.CaptureCallback mCaptureCallback
             = new CameraCaptureSession.CaptureCallback() {
 
@@ -426,22 +455,22 @@ public class Camera2BasicFragment extends Fragment
 
     @Override
     public void onViewCreated(final View view, Bundle savedInstanceState) {
+        view.findViewById(R.id.seriesButton).setOnClickListener(this);
         view.findViewById(R.id.picture).setOnClickListener(this);
         view.findViewById(R.id.info).setOnClickListener(this);
+        seriesButton = (Button) view.findViewById(R.id.seriesButton);
         mTextureView = (AutoFitTextureView) view.findViewById(R.id.texture);
     }
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mFile = new File(getActivity().getExternalFilesDir(null), "pic.jpg");
     }
 
     @Override
     public void onResume() {
         super.onResume();
         startBackgroundThread();
-
         // When the screen is turned off and turned back on, the SurfaceTexture is already
         // available, and "onSurfaceTextureAvailable" will not be called. In that case, we can open
         // a camera and start preview from here (otherwise, we wait until the surface is ready in
@@ -766,9 +795,47 @@ public class Camera2BasicFragment extends Fragment
      * Initiate a still image capture.
      */
     private void takePicture() {
-        lockFocus();
+        if (createNextFile()) lockFocus();
+        else showToast("File error!") ;
+
     }
 
+    private void takePictureSeries() {
+        /*steVogt: this is the first running version of a series of pictures thing. It is working in principle, but there are serveral issues concerning the thread mangement.
+        - App crashes on Pause during picture sequence
+        - I can run several interleaved series, this can easily lead to errors
+        * */
+         new Thread(new Runnable() {
+            public void run() {
+                int nPics = 10;
+                long waittime = 2000;
+                for ( int i = 0; i < nPics; ++i) {
+                    Message msg = hanlder.obtainMessage();
+                    msg.obj = Integer.toString(nPics-i);
+                    hanlder.sendMessage(msg);
+                    takePicture();
+                    android.os.SystemClock.sleep(waittime);
+                }
+                Message msg = hanlder.obtainMessage();
+                msg.obj = getString(R.string.takeSeries);
+                hanlder.sendMessage(msg);
+
+            }
+        }).start();
+
+    }
+    final Handler hanlder = new Handler(){
+        @Override
+        public void handleMessage(Message msg){
+            super.handleMessage(msg);
+            String label = (String)msg.obj;
+            seriesButton.setText(label);
+        }
+    };
+
+/*private void updateSeriesButtonText(String label){
+    seriesButton.setText(label);
+    }*/
     /**
      * Lock the focus as the first step for a still image capture.
      */
@@ -821,12 +888,16 @@ public class Camera2BasicFragment extends Fragment
 
             // Use the same AE and AF modes as the preview.
             captureBuilder.set(CaptureRequest.CONTROL_AF_MODE,
-                    CaptureRequest.CONTROL_AF_MODE_CONTINUOUS_PICTURE);
-            setAutoFlash(captureBuilder);
+                    CaptureRequest.CONTROL_AF_MODE_OFF);
+            //setAutoFlash(captureBuilder);
 
             // Orientation
             int rotation = activity.getWindowManager().getDefaultDisplay().getRotation();
             captureBuilder.set(CaptureRequest.JPEG_ORIENTATION, getOrientation(rotation));
+
+            // SteVogt:
+            captureBuilder.set(CaptureRequest.FLASH_MODE,CaptureRequest.FLASH_MODE_OFF);
+            final File wantedFile =  Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
 
             CameraCaptureSession.CaptureCallback CaptureCallback
                     = new CameraCaptureSession.CaptureCallback() {
@@ -838,6 +909,8 @@ public class Camera2BasicFragment extends Fragment
                     showToast("Saved: " + mFile);
                     Log.d(TAG, mFile.toString());
                     unlockFocus();
+                    //SteVogt:
+                    activity.sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, Uri.fromFile(mFile))); //update Gallery
                 }
             };
 
@@ -894,10 +967,14 @@ public class Camera2BasicFragment extends Fragment
                 Activity activity = getActivity();
                 if (null != activity) {
                     new AlertDialog.Builder(activity)
-                            .setMessage(R.string.intro_message)
+                            .setMessage(R.string.takeSeries)
                             .setPositiveButton(android.R.string.ok, null)
                             .show();
                 }
+                break;
+            }
+            case R.id.seriesButton:{
+                takePictureSeries();
                 break;
             }
         }
