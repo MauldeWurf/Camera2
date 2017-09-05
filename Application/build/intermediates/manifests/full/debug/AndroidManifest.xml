@@ -46,6 +46,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.example.android.camera2basic.DisplayMessageActivity"
+            android:label="@string/app_name"
+            android:parentActivityName="com.example.android.camera2basic.CameraActivity" >
+        </activity>
     </application>
 
 </manifest>

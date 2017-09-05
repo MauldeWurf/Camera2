@@ -88,6 +88,10 @@
         "source": "C:\\Users\\Maulwurf\\.android\\build-cache\\7c9d10360d2e169adea3fa7fdfe3364505ce90cb\\output\\res\\layout\\abc_screen_simple.xml"
     },
     {
+        "merged": "G:\\scriptsAndPieces\\Android\\Camera2\\android-Camera2Basic\\Application\\build\\intermediates\\res\\merged\\debug\\layout\\activity_display_message.xml",
+        "source": "G:\\scriptsAndPieces\\Android\\Camera2\\android-Camera2Basic\\Application\\src\\main\\res\\layout\\activity_display_message.xml"
+    },
+    {
         "merged": "G:\\scriptsAndPieces\\Android\\Camera2\\android-Camera2Basic\\Application\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_part_chronometer.xml",
         "source": "C:\\Users\\Maulwurf\\.android\\build-cache\\7c9d10360d2e169adea3fa7fdfe3364505ce90cb\\output\\res\\layout\\notification_template_part_chronometer.xml"
     },

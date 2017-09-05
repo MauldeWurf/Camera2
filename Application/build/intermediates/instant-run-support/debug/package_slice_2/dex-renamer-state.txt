@@ -1,4 +1,4 @@
-#Wed Aug 02 16:56:42 CEST 2017
+#Tue Sep 05 13:15:25 CEST 2017
 base.0=G\:\\scriptsAndPieces\\Android\\Camera2\\android-Camera2Basic\\Application\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\5\\slice_2
 renamed.0=classes.dex
 file.0=G\:\\scriptsAndPieces\\Android\\Camera2\\android-Camera2Basic\\Application\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\5\\slice_2\\classes.dex

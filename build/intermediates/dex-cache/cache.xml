@@ -84,12 +84,30 @@
     </item>
     <item
         is-multidex="true"
+        jar="C:\Users\Maulwurf\.android\build-cache\7f3739bf0a9573dc676b778a21434f5e002ba67d\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="44ee06abb66da30f5855e6bf54574e64cdcd982a">
+        <dex dex="G:\scriptsAndPieces\Android\Camera2\android-Camera2Basic\Application\build\intermediates\transforms\dex\debug\folders\1000\10\classes_ce1a0142cf38b2ae16433a5db96fddf080ea8054\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\Maulwurf\.android\build-cache\24cfeb965742898a279b44e08a9f5ba98701bd84\output\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.3"
         sha1="da27a32db6af8954ee8061537c7d476fcb1df46f">
         <dex dex="G:\scriptsAndPieces\Android\Camera2\android-Camera2Basic\Application\build\intermediates\transforms\dex\debug\folders\1000\10\classes_01f61b87644d0e535da1268c97e03986e0af59b9\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Maulwurf\AppData\Local\Android\sdk\extras\m2repository\com\android\support\constraint\constraint-layout-solver\1.0.2\constraint-layout-solver-1.0.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="b9cd8fc6bd15cb915735d34535db30ece0c44603">
+        <dex dex="G:\scriptsAndPieces\Android\Camera2\android-Camera2Basic\Application\build\intermediates\transforms\dex\debug\folders\1000\10\constraint-layout-solver-1.0.2_6f9e38b80c60c36ea7f4e45d02674168d78994ce\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -106,7 +124,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.3"
-        sha1="9ed3e2922d5b3f44fb4076205937a95c47b68337">
+        sha1="c5ac9f63108a9863850ec12e87038919ca7e31c8">
         <dex dex="G:\scriptsAndPieces\Android\Camera2\android-Camera2Basic\Application\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_891bbc52994c46d3ccfb54dd0451bc59e9cac595\classes.dex" />
     </item>
     <item

@@ -78,6 +78,8 @@ import java.util.List;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 
+import static android.app.Activity.RESULT_OK;
+
 public class Camera2BasicFragment extends Fragment
         implements View.OnClickListener, FragmentCompat.OnRequestPermissionsResultCallback {
 
@@ -293,6 +295,33 @@ public class Camera2BasicFragment extends Fragment
 
     private Button seriesButton;
 
+    private int seriesNPics = 10;
+
+    private long seriesWaittimeMs = 1000;
+
+    static final int CHANGE_SETTINGS = 1;
+
+    @Override
+    public void  onActivityResult(int requestCode, int resultCode, Intent data){
+        super.onActivityResult(requestCode,resultCode,data);
+               if(requestCode == CHANGE_SETTINGS) if (resultCode == RESULT_OK) {
+                   seriesNPics = data.getIntExtra("NPICS", 0);
+               }
+
+    }
+
+    private void openSettings(){
+        Activity activity = getActivity();
+        Intent intent = new Intent(activity, DisplayMessageActivity.class);
+        intent.putExtra(getString(R.string.Settings_NPICS),seriesNPics);
+        startActivityForResult(intent, CHANGE_SETTINGS);
+    }
+
+    public int changeNPics(int nPicsNew){
+        seriesNPics = nPicsNew;
+        return 0;
+    }
+
     private boolean createNextFile(){
         File path = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES) + File.separator + getString(R.string.fileDirectory));
         //SteVogt
@@ -458,6 +487,7 @@ public class Camera2BasicFragment extends Fragment
         view.findViewById(R.id.seriesButton).setOnClickListener(this);
         view.findViewById(R.id.picture).setOnClickListener(this);
         view.findViewById(R.id.info).setOnClickListener(this);
+        view.findViewById(R.id.settingsButton).setOnClickListener(this);
         seriesButton = (Button) view.findViewById(R.id.seriesButton);
         mTextureView = (AutoFitTextureView) view.findViewById(R.id.texture);
     }
@@ -805,16 +835,17 @@ public class Camera2BasicFragment extends Fragment
         - App crashes on Pause during picture sequence
         - I can run several interleaved series, this can easily lead to errors
         * */
+
          new Thread(new Runnable() {
             public void run() {
-                int nPics = 10;
-                long waittime = 2000;
+                int nPics = seriesNPics;
+                long waittime = seriesWaittimeMs;
                 for ( int i = 0; i < nPics; ++i) {
-                    Message msg = hanlder.obtainMessage();
-                    msg.obj = Integer.toString(nPics-i);
-                    hanlder.sendMessage(msg);
-                    takePicture();
                     android.os.SystemClock.sleep(waittime);
+                    Message msg = hanlder.obtainMessage();
+                    takePicture();
+                    msg.obj = Integer.toString(nPics-i-1);
+                    hanlder.sendMessage(msg);
                 }
                 Message msg = hanlder.obtainMessage();
                 msg.obj = getString(R.string.takeSeries);
@@ -967,7 +998,7 @@ public class Camera2BasicFragment extends Fragment
                 Activity activity = getActivity();
                 if (null != activity) {
                     new AlertDialog.Builder(activity)
-                            .setMessage(R.string.takeSeries)
+                            .setMessage(R.string.intro_message)
                             .setPositiveButton(android.R.string.ok, null)
                             .show();
                 }
@@ -975,6 +1006,10 @@ public class Camera2BasicFragment extends Fragment
             }
             case R.id.seriesButton:{
                 takePictureSeries();
+                break;
+            }
+            case R.id.settingsButton:{
+                openSettings();
                 break;
             }
         }
