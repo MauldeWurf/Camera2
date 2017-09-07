@@ -50,6 +50,7 @@ import android.os.Environment;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Message;
+import android.os.PowerManager;
 import android.support.annotation.NonNull;
 import android.support.v13.app.ActivityCompat;
 import android.support.v13.app.FragmentCompat;
@@ -63,6 +64,7 @@ import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.File;
@@ -79,6 +81,7 @@ import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 
 import static android.app.Activity.RESULT_OK;
+import static android.icu.lang.UCharacter.GraphemeClusterBreak.L;
 
 public class Camera2BasicFragment extends Fragment
         implements View.OnClickListener, FragmentCompat.OnRequestPermissionsResultCallback {
@@ -306,6 +309,7 @@ public class Camera2BasicFragment extends Fragment
         super.onActivityResult(requestCode,resultCode,data);
                if(requestCode == CHANGE_SETTINGS) if (resultCode == RESULT_OK) {
                    seriesNPics = data.getIntExtra("NPICS", 0);
+                   seriesWaittimeMs = data.getLongExtra("WAITT",1);
                }
 
     }
@@ -314,12 +318,8 @@ public class Camera2BasicFragment extends Fragment
         Activity activity = getActivity();
         Intent intent = new Intent(activity, DisplayMessageActivity.class);
         intent.putExtra(getString(R.string.Settings_NPICS),seriesNPics);
+        intent.putExtra(getString(R.string.Settings_WaitTime),seriesWaittimeMs);
         startActivityForResult(intent, CHANGE_SETTINGS);
-    }
-
-    public int changeNPics(int nPicsNew){
-        seriesNPics = nPicsNew;
-        return 0;
     }
 
     private boolean createNextFile(){
@@ -505,6 +505,11 @@ public class Camera2BasicFragment extends Fragment
         // available, and "onSurfaceTextureAvailable" will not be called. In that case, we can open
         // a camera and start preview from here (otherwise, we wait until the surface is ready in
         // the SurfaceTextureListener).
+
+        //Set value of indicators
+        TextView nPics_ind = (TextView)getView().findViewById(R.id.nPics_Indicator);
+        nPics_ind.setText(String.valueOf(seriesNPics));
+
         if (mTextureView.isAvailable()) {
             openCamera(mTextureView.getWidth(), mTextureView.getHeight());
         } else {
@@ -835,11 +840,13 @@ public class Camera2BasicFragment extends Fragment
         - App crashes on Pause during picture sequence
         - I can run several interleaved series, this can easily lead to errors
         * */
-
+        getView().setKeepScreenOn(true);
          new Thread(new Runnable() {
             public void run() {
                 int nPics = seriesNPics;
                 long waittime = seriesWaittimeMs;
+
+
                 for ( int i = 0; i < nPics; ++i) {
                     android.os.SystemClock.sleep(waittime);
                     Message msg = hanlder.obtainMessage();
@@ -872,6 +879,14 @@ public class Camera2BasicFragment extends Fragment
      */
     private void lockFocus() {
         try {
+
+            //stevogt: playing with AE
+           /* mPreviewRequestBuilder.set(CaptureRequest.CONTROL_AE_MODE,CameraMetadata.CONTROL_AE_MODE_OFF);
+            Long AutoExposureValue = 5*1000L*1000L*1000L;
+            mPreviewRequestBuilder.set(CaptureRequest.SENSOR_EXPOSURE_TIME, AutoExposureValue);*/
+
+            
+
             // This is how to tell the camera to lock focus.
             mPreviewRequestBuilder.set(CaptureRequest.CONTROL_AF_TRIGGER,
                     CameraMetadata.CONTROL_AF_TRIGGER_START);
@@ -937,7 +952,7 @@ public class Camera2BasicFragment extends Fragment
                 public void onCaptureCompleted(@NonNull CameraCaptureSession session,
                                                @NonNull CaptureRequest request,
                                                @NonNull TotalCaptureResult result) {
-                    showToast("Saved: " + mFile);
+                    //showToast("Saved: " + mFile);
                     Log.d(TAG, mFile.toString());
                     unlockFocus();
                     //SteVogt:
@@ -948,8 +963,7 @@ public class Camera2BasicFragment extends Fragment
             mCaptureSession.stopRepeating();
             mCaptureSession.capture(captureBuilder.build(), CaptureCallback, null);
         } catch (CameraAccessException e) {
-            e.printStackTrace();
-        }
+            e.printStackTrace();}
     }
 
     /**

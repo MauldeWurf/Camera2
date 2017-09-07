@@ -17,7 +17,7 @@
 
 <resources>
     <string name="app_name">Camera2Basic</string>
-    <string name="intro_message">\"\n        <![CDATA[
-This sample demonstrates the basic use of Camera2 API. This version was modified stevogt.
-        ]]>\n    \"</string>
+    <string name="intro_message">\" <![CDATA[
+This sample demonstrates the basic use of Camera2 API. This version was modified by stevogt.
+        ]]>\"</string>
 </resources>

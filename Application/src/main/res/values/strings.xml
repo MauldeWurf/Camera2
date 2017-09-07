@@ -14,13 +14,15 @@
  limitations under the License.
 -->
 <resources>
-    <string name="picture">Take Picture</string>
+    <string name="picture">single \n picture</string>
     <string name="description_info">Info</string>
     <string name="request_permission">This sample needs camera permission.</string>
     <string name="camera_error">This device doesn\'t support Camera2 API.</string>
     <string name="fileDirectory">MwurfApp</string>
-    <string name="takeSeries">TAKE 10 \n PICTURES</string>
+    <string name="takeSeries">TAKE \n PICTURES</string>
     <string name="Settings_headline">Settings</string>
     <string name="LabelSeriesNoPics">Pictures in Series:</string>
     <string name="Settings_NPICS" translatable="false">com.example.android.camera2basic.NPICS</string>
+    <string name="LabelWaitingTime">Waiting Time (ms):</string>
+    <string name="Settings_WaitTime" translatable="false">com.example.android.camer2basic.WAITT</string>
 </resources>

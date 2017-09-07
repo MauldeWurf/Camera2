@@ -13,6 +13,7 @@ import android.widget.TextView;
 public class DisplayMessageActivity extends Activity {
 
     private int nPics;
+    private long waitTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,8 +27,11 @@ public class DisplayMessageActivity extends Activity {
         super.onResume();
         Intent intent = getIntent();
         nPics = intent.getIntExtra(getString(R.string.Settings_NPICS),0);
-        TextView tview = (TextView)findViewById(R.id.SeriesNoPics);
-        tview.setText(String.valueOf(nPics));
+        waitTime = intent.getLongExtra(getString(R.string.Settings_WaitTime),0);
+        TextView nPicView = (TextView)findViewById(R.id.SeriesNoPics);
+        TextView waitView = (TextView)findViewById(R.id.WaitingTime);
+        nPicView.setText(String.valueOf(nPics));
+        waitView.setText(String.valueOf(waitTime));
 
     }
 
@@ -45,9 +49,12 @@ public class DisplayMessageActivity extends Activity {
     private void changeValue(){
         Intent intent = getIntent();
         Intent settingsData = new Intent();
-        TextView tview = (TextView)findViewById(R.id.SeriesNoPics);
-        int nPics = Integer.parseInt(tview.getText().toString());
+        TextView nPicView = (TextView)findViewById(R.id.SeriesNoPics);
+        TextView WaitTimeView = (TextView)findViewById(R.id.WaitingTime);
+        nPics = Integer.parseInt(nPicView.getText().toString());
+        waitTime = Integer.parseInt(WaitTimeView.getText().toString());
         settingsData.putExtra("NPICS", nPics);
+        settingsData.putExtra("WAITT",waitTime);
         setResult(Activity.RESULT_OK, settingsData);
         finish();
     }

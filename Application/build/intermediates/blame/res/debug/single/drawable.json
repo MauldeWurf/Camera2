@@ -1,11 +1,11 @@
 [
     {
-        "merged": "G:\\scriptsAndPieces\\Android\\Camera2\\android-Camera2Basic\\Application\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_holo_light.xml",
-        "source": "C:\\Users\\Maulwurf\\.android\\build-cache\\7c9d10360d2e169adea3fa7fdfe3364505ce90cb\\output\\res\\drawable\\abc_list_selector_holo_light.xml"
-    },
-    {
         "merged": "G:\\scriptsAndPieces\\Android\\Camera2\\android-Camera2Basic\\Application\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_item_background_holo_dark.xml",
         "source": "C:\\Users\\Maulwurf\\.android\\build-cache\\7c9d10360d2e169adea3fa7fdfe3364505ce90cb\\output\\res\\drawable\\abc_item_background_holo_dark.xml"
+    },
+    {
+        "merged": "G:\\scriptsAndPieces\\Android\\Camera2\\android-Camera2Basic\\Application\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_holo_light.xml",
+        "source": "C:\\Users\\Maulwurf\\.android\\build-cache\\7c9d10360d2e169adea3fa7fdfe3364505ce90cb\\output\\res\\drawable\\abc_list_selector_holo_light.xml"
     },
     {
         "merged": "G:\\scriptsAndPieces\\Android\\Camera2\\android-Camera2Basic\\Application\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_text_cursor_material.xml",
