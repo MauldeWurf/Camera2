@@ -843,32 +843,33 @@ public class Camera2BasicFragment extends Fragment
         - I can run several interleaved series, this can easily lead to errors
         * */
         getView().setKeepScreenOn(true);
+        if(seriesThread == null) {
+            seriesThread = new Thread(new Runnable() {
+                public void run() {
+                    int nPics = seriesNPics;
+                    long waittime = seriesWaittimeMs;
 
-        seriesThread = new Thread(new Runnable() {
-            public void run() {
-                int nPics = seriesNPics;
-                long waittime = seriesWaittimeMs;
+                    for (int i = 0; i < nPics; ++i) {
+                        Message msg = hanlder.obtainMessage();
+                        try {
+                            takePicture();
+                        } catch (Exception e) {
+                            break;
+                        }
+                        msg.obj = Integer.toString(nPics - i - 1);
+                        hanlder.sendMessage(msg);
+                        android.os.SystemClock.sleep(waittime);
+                    }
 
-                for ( int i = 0; i < nPics; ++i) {
                     Message msg = hanlder.obtainMessage();
-                    try {
-                        takePicture();
-                    }
-                    catch(Exception e){
-                        break;
-                    }
-                    msg.obj = Integer.toString(nPics-i-1);
+                    msg.obj = getString(R.string.takeSeries);
                     hanlder.sendMessage(msg);
-                    android.os.SystemClock.sleep(waittime);
+                    seriesThread = null;
                 }
-
-                Message msg = hanlder.obtainMessage();
-                msg.obj = getString(R.string.takeSeries);
-                hanlder.sendMessage(msg);
-
-            }
-        });
+            });
+        }
         seriesThread.start();
+
 
     }
     final Handler hanlder = new Handler(){

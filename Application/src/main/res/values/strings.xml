@@ -21,8 +21,8 @@
     <string name="fileDirectory">MwurfApp</string>
     <string name="takeSeries">TAKE \n PICTURES</string>
     <string name="Settings_headline">Settings</string>
-    <string name="LabelSeriesNoPics">Pictures in Series:</string>
+    <string name="LabelSeriesNoPics">Pictures in series:</string>
     <string name="Settings_NPICS" translatable="false">com.example.android.camera2basic.NPICS</string>
-    <string name="LabelWaitingTime">Waiting Time (ms):</string>
     <string name="Settings_WaitTime" translatable="false">com.example.android.camer2basic.WAITT</string>
+    <string name="LabelWaitingTime">Time between pictures:</string>
 </resources>
