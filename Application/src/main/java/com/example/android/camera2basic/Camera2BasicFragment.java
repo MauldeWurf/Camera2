@@ -239,6 +239,8 @@ public class Camera2BasicFragment extends Fragment
     /**
      * An {@link ImageReader} that handles still image capture.
      */
+    private Thread seriesThread;
+
     private ImageReader mImageReader;
 
     /**
@@ -519,6 +521,7 @@ public class Camera2BasicFragment extends Fragment
 
     @Override
     public void onPause() {
+        if(seriesThread != null) seriesThread.interrupt();
         closeCamera();
         stopBackgroundThread();
         super.onPause();
@@ -718,7 +721,6 @@ public class Camera2BasicFragment extends Fragment
         mBackgroundThread.start();
         mBackgroundHandler = new Handler(mBackgroundThread.getLooper());
     }
-
     /**
      * Stops the background thread and its {@link Handler}.
      */
@@ -841,25 +843,32 @@ public class Camera2BasicFragment extends Fragment
         - I can run several interleaved series, this can easily lead to errors
         * */
         getView().setKeepScreenOn(true);
-         new Thread(new Runnable() {
+
+        seriesThread = new Thread(new Runnable() {
             public void run() {
                 int nPics = seriesNPics;
                 long waittime = seriesWaittimeMs;
 
-
                 for ( int i = 0; i < nPics; ++i) {
-                    android.os.SystemClock.sleep(waittime);
                     Message msg = hanlder.obtainMessage();
-                    takePicture();
+                    try {
+                        takePicture();
+                    }
+                    catch(Exception e){
+                        break;
+                    }
                     msg.obj = Integer.toString(nPics-i-1);
                     hanlder.sendMessage(msg);
+                    android.os.SystemClock.sleep(waittime);
                 }
+
                 Message msg = hanlder.obtainMessage();
                 msg.obj = getString(R.string.takeSeries);
                 hanlder.sendMessage(msg);
 
             }
-        }).start();
+        });
+        seriesThread.start();
 
     }
     final Handler hanlder = new Handler(){

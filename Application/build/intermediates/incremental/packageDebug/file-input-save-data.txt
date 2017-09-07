@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Wed Sep 06 19:19:34 CEST 2017
+#Thu Sep 07 14:16:25 CEST 2017
 14.set=ANDROID_RESOURCE
 180.file=G\:\\scriptsAndPieces\\Android\\Camera2\\android-Camera2Basic\\Application\\build\\intermediates\\res\\resources-debug.ap_\\res\\layout-v11\\notification_media_action.xml
 118.set=ANDROID_RESOURCE
